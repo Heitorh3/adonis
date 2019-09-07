@@ -2,11 +2,15 @@
 backend/node_modules
 
 # Adonis directory for storing tmp files
-tmp
+backend/tmp
 
 # Environment variables, never commit this file
 .env
 
 # The development sqlite file
-backend/database/development.sqlite
-backend/database/adonis.sqlite
+backend/database/*.sqlite
+
+# Package-lock
+backend/package-lock.json
+
+backend/*.lock

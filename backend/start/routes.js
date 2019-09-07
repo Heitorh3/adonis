@@ -17,7 +17,9 @@
 const Route = use("Route");
 
 Route.post("/sessions", "SessionController.store");
-Route.post("/users", "UserController.store");
 
-Route.get("/users", "UserController.list");
-Route.get("/users/:id", "UserController.show");
+Route.group(() => {
+  Route.post("/", "UserController.store");
+  Route.get("/", "UserController.list");
+  Route.get("/:id", "UserController.show");
+}).prefix("/users");
