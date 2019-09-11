@@ -28,6 +28,8 @@ adonis migration:run
 
 # Todo
 
-- Style guides;
-- Validações;
-- Configurar o debug
+# Comandos para configurações
+
+- yarn eslint --init //Inicializar o eslint
+- yarn add prettier eslint-config-prettier eslint-plugin-prettier -D //Adiciona os plugins prettier e eslint
+- yarn eslint --fix config --ext .js //Vericar os arquivos da pasta config a procura de erros
