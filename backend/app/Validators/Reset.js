@@ -3,9 +3,8 @@
 class Reset {
   get rules() {
     return {
-      email: "email|required",
+      token: "required",
       password: "required|confirmed"
-      //password_confirmation: 'required'
     };
   }
 }
