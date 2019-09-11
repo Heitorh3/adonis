@@ -9,6 +9,7 @@ const Factory = use("Factory");
 const User = use("App/Models/User");
 
 trait("Test/ApiClient");
+trait("DatabaseTransactions");
 
 test("It should return a new user created", async ({ assert, client }) => {
   const userPayload = {
@@ -16,7 +17,7 @@ test("It should return a new user created", async ({ assert, client }) => {
     email: "maria@gmail.com",
     password: "123456"
   };
-  //const user = await Factory.model("App/Models/User").create();
+  //const user = await Factory.model("App/Models/User").create(userPayload);
 
   const response = await client
     .post("/users")

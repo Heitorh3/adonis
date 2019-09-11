@@ -9,7 +9,7 @@ const Factory = use("Factory");
 const User = use("App/Models/User");
 
 trait("Test/ApiClient");
-trait("Auth/Client");
+trait("DatabaseTransactions");
 
 test("It should return JWT token when session created", async ({
   assert,
