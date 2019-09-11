@@ -1,4 +1,4 @@
-"use strict";
+
 
 const { test, trait } = use("Test/Suite")("Reset password");
 
@@ -7,7 +7,7 @@ const { subHours, format } = require("date-fns");
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use("Factory");
 
-/** @type {typeof import ('@adonisjs/lucid/src/Lucid/Model')}*/
+/** @type {typeof import ('@adonisjs/lucid/src/Lucid/Model')} */
 const User = use("App/Models/User");
 const Hash = use("Hash");
 const Mail = use("Mail");

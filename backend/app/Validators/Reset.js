@@ -1,4 +1,4 @@
-"use strict";
+
 
 class Reset {
   get rules() {
