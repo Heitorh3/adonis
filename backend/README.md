@@ -33,3 +33,6 @@ adonis migration:run
 - yarn eslint --init //Inicializar o eslint
 - yarn add prettier eslint-config-prettier eslint-plugin-prettier -D //Adiciona os plugins prettier e eslint
 - yarn eslint --fix config --ext .js //Vericar os arquivos da pasta config a procura de erros
+
+# Comando para criação do container postegress
+ - docker run --name adonis -p 5432 -d -t kartoza/postgis
