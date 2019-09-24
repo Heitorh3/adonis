@@ -35,4 +35,5 @@ adonis migration:run
 - yarn eslint --fix config --ext .js //Vericar os arquivos da pasta config a procura de erros
 
 # Comando para criação do container postegress
- - docker run --name adonis -p 5432 -d -t kartoza/postgis
+ - docker run --name adonis -e POSTGRES_DBNAME=docker  -p 5432:5432 -d -t kartoza/postgis
+ - docker run --name adonis -e POSTGRES_USER=adonis -e POSTGRES_PASS=adonis -e POSTGRES_DBNAME=docker -p 5432:5432 -d -t kartoza/postgis
