@@ -29,13 +29,6 @@ test('It should return a new user created', async ({ client }) => {
   });
 });
 
-test('It should return list users', async ({ client }) => {
-  const response = await client.get('/users').end();
-
-  // console.log("error", response.error);
-  response.assertStatus(200);
-});
-
 test('Can get a user by id', async ({ client }) => {
   const users = await Factory.model('App/Models/User').createMany(3);
   const user = users[0];

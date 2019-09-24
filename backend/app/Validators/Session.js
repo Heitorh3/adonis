@@ -1,10 +1,8 @@
-
-
 class Session {
   get rules() {
     return {
-      email: "email|required",
-      password: "required"
+      email: 'email|required',
+      password: 'required',
     };
   }
 }
