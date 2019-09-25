@@ -19,7 +19,7 @@ Route.post('/forgot', 'ForgotPasswordController.store').validator('Forgot');
 Route.post('/reset', 'ResetPasswordController.store').validator('Reset');
 
 Route.group(() => {
-  Route.post('/workshops', 'WorkshopController.store');
+  Route.post('/workshops', 'WorkshopController.store').validator('Workshop');
 }).middleware('auth');
 
 Route.group(() => {
