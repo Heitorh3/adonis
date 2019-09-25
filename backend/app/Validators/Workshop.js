@@ -1,5 +1,9 @@
 const { rule } = use('Validator');
 class Workshop {
+  get validateAll() {
+    return true;
+  }
+
   get rules() {
     return {
       title: [rule('required')],

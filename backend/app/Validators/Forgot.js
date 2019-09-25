@@ -1,4 +1,7 @@
 class Forgot {
+  get validateAll() {
+    return true;
+  }
   get rules() {
     return {
       email: 'email|required',
