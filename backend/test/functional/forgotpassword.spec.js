@@ -1,6 +1,6 @@
 const { test, trait } = use('Test/Suite')('Reset password');
 
-const { subHours, format } = require('date-fns');
+const { subHours, subMinutes, format } = require('date-fns');
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory');
@@ -78,7 +78,10 @@ test('It cannot reset password after 2h of forgot password request', async ({
   const userToken = await Factory.model('App/Models/Token').make();
 
   await user.tokens().save(userToken);
-  const dataWithSub = format(subHours(new Date(), 2), 'yyyy-MM-dd HH:ii:ss');
+  const dataWithSub = format(
+    subMinutes(subHours(new Date(), 2), 10),
+    'yyyy-MM-dd HH:ii:ss'
+  );
 
   await Database.table('tokens')
     .where('token', userToken.token)
