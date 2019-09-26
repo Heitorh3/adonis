@@ -34,6 +34,9 @@ adonis migration:run
 - yarn add prettier eslint-config-prettier eslint-plugin-prettier -D //Adiciona os plugins prettier e eslint
 - yarn eslint --fix config --ext .js //Vericar os arquivos da pasta config a procura de erros
 
-# Comando para criação do container postegress
+# Comandos para criação dos containers 
  - docker run --name adonis -e POSTGRES_DBNAME=docker  -p 5432:5432 -d -t kartoza/postgis
- - docker run --name adonis -e POSTGRES_USER=adonis -e POSTGRES_PASS=adonis -e POSTGRES_DBNAME=docker -p 5432:5432 -d -t kartoza/postgis
+ - docker run --name redis -p 6379:6379 -d redis:alpine 
+
+# Comando para rodar a fila que envia os emails de recuperação de senha
+ - adonis kue:listen
