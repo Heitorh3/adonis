@@ -2,10 +2,14 @@
 const User = use('App/Models/User');
 
 const Helpers = use('Helpers');
+const Hash = use('Hash');
 
 class ProfileController {
   async update({ request, response, auth }) {
     const user = await auth.getUser();
+    const data = request.only(['name', 'bio', 'title', 'github', 'linkedin']);
+
+    const password = request.input('password');
 
     try {
       if (!request.file('avatar')) return;
@@ -22,6 +26,13 @@ class ProfileController {
       }
 
       user.avatar = fileName;
+      user.merge(data);
+
+      if (password) {
+        user.password = password;
+      }
+
+      await user.save();
 
       return user;
     } catch (err) {

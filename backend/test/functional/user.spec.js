@@ -1,6 +1,7 @@
 const { test, trait } = use('Test/Suite')('User');
 
 const Helpers = use('Helpers');
+const Hash = use('Hash');
 
 /** @type {import('@adonisjs/lucid/src/Factory')} */
 const Factory = use('Factory');
@@ -61,4 +62,28 @@ test('It should be able to creat avatar', async ({ client, assert }) => {
     .end();
   response.assertStatus(200);
   assert.exists(response.body.avatar);
+});
+
+test('It should be able to update profile', async ({ client, assert }) => {
+  const user = await Factory.model('App/Models/User').create({
+    name: 'Marcos Camacho',
+    password: '123123',
+  });
+
+  const response = await client
+    .put('/profile')
+    .loginVia(user, 'jwt')
+    .field('name', 'Jorge Amado')
+    .field('password', '123456')
+    .field('password_confirmation', '123456')
+    .attach('avatar', Helpers.tmpPath('test/avatar.jpg'))
+    .end();
+
+  response.assertStatus(200);
+
+  assert.equal(response.body.name, 'Jorge Amado');
+  assert.exists(response.body.avatar);
+
+  await user.reload();
+  assert.isTrue(await Hash.verify('123456', user.password));
 });
