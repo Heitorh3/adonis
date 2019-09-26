@@ -2,7 +2,7 @@ const Mail = use('Mail');
 
 class ForgotPasswordEmail {
   static get concurrency() {
-    return 1;
+    return 3;
   }
 
   static get key() {
