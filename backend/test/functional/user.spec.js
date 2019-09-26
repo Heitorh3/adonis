@@ -46,7 +46,7 @@ test('Status 404 if id do not exist', async ({ client }) => {
   response.assertStatus(404);
 });
 
-test('It should be able to creat avatar', async ({ client, assert }) => {
+test('It should be able to create avatar', async ({ client, assert }) => {
   const userPayload = {
     name: 'Maria Neto',
     email: 'maria@gmail.com',
@@ -58,6 +58,7 @@ test('It should be able to creat avatar', async ({ client, assert }) => {
   const response = await client
     .put('/profile')
     .loginVia(user, 'jwt')
+    .field('name', 'Maria Neto')
     .attach('avatar', Helpers.tmpPath('test/avatar.jpg'))
     .end();
   response.assertStatus(200);

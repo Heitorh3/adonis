@@ -23,6 +23,11 @@ Route.post('/reset', 'ResetPasswordController.store').validator('Reset');
 
 Route.group(() => {
   Route.post('/workshops', 'WorkshopController.store').validator('Workshop');
+  Route.delete('/workshops/:id', 'WorkshopController.delete');
+  Route.put('/workshops/:id', 'WorkshopController.update').validator(
+    'Workshop'
+  );
+
   Route.get('/workshops', 'WorkshopController.index');
   Route.get('/workshops/:id', 'WorkshopController.show');
 

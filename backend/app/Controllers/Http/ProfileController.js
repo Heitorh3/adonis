@@ -14,7 +14,7 @@ class ProfileController {
     try {
       if (!request.file('avatar')) return;
 
-      const avatar = request.file('avatar', { size: '2mb' });
+      const avatar = request.file('avatar');
       const fileName = `${new Date().getTime()}.${avatar.subtype}`;
 
       await avatar.move(Helpers.tmpPath('uploads'), {
