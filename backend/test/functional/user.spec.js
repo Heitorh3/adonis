@@ -15,7 +15,7 @@ test('It should return a new user created', async ({ client }) => {
     email: 'maria@gmail.com',
     password: '123456',
   };
-  // const user = await Factory.model("App/Models/User").create(userPayload);
+  // const user = await Factory.model('App/Models/User').create(userPayload);
 
   const response = await client
     .post('/users')
@@ -29,12 +29,12 @@ test('It should return a new user created', async ({ client }) => {
   });
 });
 
-test('It should return list users', async ({ client }) => {
-  const response = await client.get('/users').end();
+// test('It should return list users', async ({ client }) => {
+//   const response = await client.get('/users').end();
 
-  // console.log("error", response.error);
-  response.assertStatus(200);
-});
+//   // console.log("error", response.error);
+//   response.assertStatus(200);
+// });
 
 test('Can get a user by id', async ({ client }) => {
   const users = await Factory.model('App/Models/User').createMany(3);
