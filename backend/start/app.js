@@ -1,5 +1,4 @@
-
-
+const path = require('path');
 /*
 |--------------------------------------------------------------------------
 | Providers
@@ -11,14 +10,19 @@
 |
 */
 const providers = [
-  "@adonisjs/framework/providers/AppProvider",
-  "@adonisjs/auth/providers/AuthProvider",
-  "@adonisjs/bodyparser/providers/BodyParserProvider",
-  "@adonisjs/cors/providers/CorsProvider",
-  "@adonisjs/lucid/providers/LucidProvider",
-  "@adonisjs/mail/providers/MailProvider",
-  "@adonisjs/framework/providers/ViewProvider",
-  "@adonisjs/validator/providers/ValidatorProvider"
+  '@adonisjs/framework/providers/AppProvider',
+  '@adonisjs/auth/providers/AuthProvider',
+  '@adonisjs/bodyparser/providers/BodyParserProvider',
+  '@adonisjs/cors/providers/CorsProvider',
+  '@adonisjs/lucid/providers/LucidProvider',
+  '@adonisjs/mail/providers/MailProvider',
+  '@adonisjs/framework/providers/ViewProvider',
+  '@adonisjs/validator/providers/ValidatorProvider',
+  '@adonisjs/antl/providers/AntlProvider',
+  '@adonisjs/redis/providers/RedisProvider',
+  'adonis-kue/providers/KueProvider',
+
+  path.join(__dirname, '..', 'providers', 'CustomValidatorProvider'),
 ];
 
 /*
@@ -31,8 +35,9 @@ const providers = [
 |
 */
 const aceProviders = [
-  "@adonisjs/lucid/providers/MigrationsProvider",
-  "@adonisjs/vow/providers/VowProvider"
+  '@adonisjs/lucid/providers/MigrationsProvider',
+  '@adonisjs/vow/providers/VowProvider',
+  'adonis-kue/providers/CommandsProvider',
 ];
 
 /*
@@ -59,4 +64,13 @@ const aliases = {};
 */
 const commands = [];
 
-module.exports = { providers, aceProviders, aliases, commands };
+/*
+|--------------------------------------------------------------------------
+| Jobs
+|--------------------------------------------------------------------------
+|
+| Here you make your queue jobs
+|
+*/
+const jobs = ['App/Jobs/ForgotPasswordEmail'];
+module.exports = { providers, aceProviders, aliases, commands, jobs };
